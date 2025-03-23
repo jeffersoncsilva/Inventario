@@ -14,6 +14,18 @@ namespace Inventario.Services.Account
 			return await _accountRepository.CheckIfUserAndPasswordIsCorrect(login.Login, password);
 		}
 
+		public async Task<bool> CheckIfLoginIsUsed(string login)
+		{
+			return await _accountRepository.CheckIfLoginIsInUse(login);
+		}
+
+		public async Task<bool> SaveNewUserAsync(NewUserViewModel user)
+		{
+			user.Password = EncriptePassword(user.Password);
+			var result = await _accountRepository.AddNewUser(user);
+			return result > 0;
+		}
+
 		private string EncriptePassword(string pwd)
 		{
 			return pwd;

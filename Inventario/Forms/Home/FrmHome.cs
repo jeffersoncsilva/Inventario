@@ -1,4 +1,5 @@
-﻿using Inventario.Forms.Products;
+﻿using Inventario.Forms.Account;
+using Inventario.Forms.Products;
 using Inventario.Models.Products;
 using Inventario.Services.Products;
 using System;
@@ -119,6 +120,14 @@ namespace Inventario.Features.Home
 		private void sairToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
+		}
+
+		private void registroToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var newUser = new FrmNewUser();
+			newUser.Owner = this;
+			newUser.ShowDialog();
+			Hide();
 		}
 	}
 }

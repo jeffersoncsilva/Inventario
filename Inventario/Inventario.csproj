@@ -168,6 +168,12 @@
     <Compile Include="Forms\Account\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Account\FrmNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Account\FrmNewUser.Designer.cs">
+      <DependentUpon>FrmNewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Home\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,7 @@
       <DependentUpon>FrmProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\NewUserViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\CompanyViewModel.cs" />
     <Compile Include="Models\Products\ProductViewModel.cs" />
@@ -195,6 +202,9 @@
     <Compile Include="Services\Products\ProductService.cs" />
     <EmbeddedResource Include="Forms\Account\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Account\FrmNewUser.resx">
+      <DependentUpon>FrmNewUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home\FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>

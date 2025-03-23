@@ -105,6 +105,7 @@
 			this.registroToolStripMenuItem.Size = new System.Drawing.Size(76, 74);
 			this.registroToolStripMenuItem.Text = "Registro";
 			this.registroToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.registroToolStripMenuItem.Click += new System.EventHandler(this.registroToolStripMenuItem_Click);
 			// 
 			// clientesToolStripMenuItem
 			// 
