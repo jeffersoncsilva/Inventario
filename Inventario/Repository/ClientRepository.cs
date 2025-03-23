@@ -11,7 +11,7 @@ namespace Inventario.Repository
 		{
 			try
 			{
-				using (var cmd = new SqlCommand("INSERT INTO Clients (Name, Address, Referency, City, Country, PostalCode, Phone, MobilePhone, Email, Observations) VALUES (@name, @address, @referecy, @city, @coutry, @postalCode, @phone, @mobilePhone, @email, @observations"))
+				using (var cmd = new SqlCommand("INSERT INTO Clients (Name, Address, Referency, City, Country, PostalCode, Phone, MobilePhone, Email, Observations) VALUES (@name, @address, @referency, @city, @country, @postalCode, @phone, @mobilePhone, @email, @observations);"))
 				{
 					cmd.Parameters.AddWithValue("name", vm.Name);
 					cmd.Parameters.AddWithValue("address", vm.Address);

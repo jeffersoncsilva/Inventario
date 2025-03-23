@@ -66,6 +66,7 @@
 			this.txtPwd.Name = "txtPwd";
 			this.txtPwd.Size = new System.Drawing.Size(186, 23);
 			this.txtPwd.TabIndex = 7;
+			this.txtPwd.Text = "teste";
 			// 
 			// txtUser
 			// 
@@ -75,6 +76,7 @@
 			this.txtUser.Name = "txtUser";
 			this.txtUser.Size = new System.Drawing.Size(186, 23);
 			this.txtUser.TabIndex = 6;
+			this.txtUser.Text = "teste";
 			// 
 			// btnCancel
 			// 
