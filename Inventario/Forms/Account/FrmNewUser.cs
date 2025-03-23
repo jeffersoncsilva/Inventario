@@ -169,7 +169,7 @@ namespace Inventario.Forms.Account
 		{
 			if(Owner != null)
 			{
-				Owner.ShowDialog();
+				Owner.Show();
 			}
 		}
 	}

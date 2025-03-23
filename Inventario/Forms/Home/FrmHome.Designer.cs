@@ -116,6 +116,7 @@
 			this.clientesToolStripMenuItem.Size = new System.Drawing.Size(73, 74);
 			this.clientesToolStripMenuItem.Text = "Clientes";
 			this.clientesToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
 			// 
 			// produtosToolStripMenuItem
 			// 

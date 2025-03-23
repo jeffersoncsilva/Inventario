@@ -1,4 +1,5 @@
 ﻿using Inventario.Forms.Account;
+using Inventario.Forms.Customers;
 using Inventario.Forms.Products;
 using Inventario.Models.Products;
 using Inventario.Services.Products;
@@ -24,14 +25,21 @@ namespace Inventario.Features.Home
 
 		private void calculadoraToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			Process.Start("calc.exe");
+			try
+			{
+				StartApplication("calc.exe");
+			}
+			catch(Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
 		}
 
 		private void wordpadToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
 			try
 			{
-				Process.Start("write.exe");
+				StartApplication("write.exe");
 			}
 			catch(Exception ex)
 			{
@@ -43,7 +51,7 @@ namespace Inventario.Features.Home
 		{
 			try
 			{
-				Process.Start("winword.exe");
+				StartApplication("winword.exe");
 			}
 			catch (Exception ex)
 			{
@@ -55,7 +63,7 @@ namespace Inventario.Features.Home
 		{
 			try
 			{
-				Process.Start("taskmgr.exe");
+				StartApplication("taskmgr.exe");
 			}
 			catch (Exception ex)
 			{
@@ -67,7 +75,7 @@ namespace Inventario.Features.Home
 		{
 			try
 			{
-				Process.Start("Notepad.exe");
+				StartApplication("Notepad.exe");
 			}
 			catch (Exception ex)
 			{
@@ -109,6 +117,11 @@ namespace Inventario.Features.Home
 			}
 		}
 
+		private void StartApplication(string appName)
+		{
+			Process.Start(appName);
+		}
+
 		private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var frmProduct = new FrmProduct();
@@ -126,8 +139,16 @@ namespace Inventario.Features.Home
 		{
 			var newUser = new FrmNewUser();
 			newUser.Owner = this;
-			newUser.ShowDialog();
 			Hide();
+			newUser.ShowDialog();
+		}
+
+		private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var newCliwent = new FrmCustomers();
+			newCliwent.Owner = this;
+			Hide();
+			newCliwent.ShowDialog();
 		}
 	}
 }
