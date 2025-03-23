@@ -78,9 +78,9 @@ namespace Inventario.Services.Products
 			return (companies, categories);
 		}
 
-		public async Task SaveNewProductAsync(ProductViewModel product)
+		public async Task<int> SaveNewProductAsync(ProductViewModel product)
 		{
-			await _repository.SaveNewProductAsync(product);
+			return await _repository.SaveNewProductAsync(product);
 		}
 	}
 }

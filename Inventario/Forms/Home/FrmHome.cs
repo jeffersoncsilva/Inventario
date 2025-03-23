@@ -112,7 +112,13 @@ namespace Inventario.Features.Home
 		{
 			var frmProduct = new FrmProduct();
 			this.Hide();
+			frmProduct.Owner = this;
 			frmProduct.ShowDialog();
+		}
+
+		private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
 		}
 	}
 }

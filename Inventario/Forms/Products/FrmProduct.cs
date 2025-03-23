@@ -3,7 +3,6 @@ using Inventario.Models.Products;
 using Inventario.Services.Products;
 using System;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Inventario.Forms.Products
@@ -37,7 +36,26 @@ namespace Inventario.Forms.Products
 				return;
 
 			var product = CreateNewProduct();
-			await _productService.SaveNewProductAsync(product);
+			var result = await _productService.SaveNewProductAsync(product);
+			if(result > 0)
+			{
+				ShowMessageProductAddedSuccess();
+			}
+			else
+			{
+				ShowMessageProductNotAdded();
+			}
+			ClearForm();
+		}
+
+		private void ShowMessageProductAddedSuccess()
+		{
+			MessageBox.Show("Produto salvo com sucesso.", "Produto Salvo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+		}
+
+		private void ShowMessageProductNotAdded()
+		{
+			MessageBox.Show("Ocorreu um erro ao salvar seu produto. Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		private bool DataIsValid()
@@ -45,8 +63,10 @@ namespace Inventario.Forms.Products
 			bool isProductNameValid = IsProductNameValid();
 			bool isCategoryValid = IsCategoryValid();
 			bool isCompanyValid = IsCompanyValid();
-
-			return isProductNameValid && isCategoryValid && isCompanyValid;
+			bool isFeaturesValid = IsFeaturesValid();
+			bool isPriceValid = IsPriceValid();
+			bool isQuantityValid = IsQuantityValid();
+			return isProductNameValid && isCategoryValid && isCompanyValid && isFeaturesValid && isPriceValid && isQuantityValid;
 		}
 
 		private bool IsProductNameValid()
@@ -80,7 +100,7 @@ namespace Inventario.Forms.Products
 
 		private bool IsCompanyValid()
 		{
-			if(cmbCompanies.SelectedIndex == -1)
+			if (cmbCompanies.SelectedIndex == -1)
 			{
 				cmbCompanies.BackColor = Color.Red;
 				cmbCompanies.ForeColor = Color.White;
@@ -91,11 +111,60 @@ namespace Inventario.Forms.Products
 			return true;
 		}
 
+		private bool IsFeaturesValid()
+		{
+			if (string.IsNullOrWhiteSpace(txbFeatures.Text))
+			{
+				txbFeatures.BackColor = Color.Red;
+				txbFeatures.ForeColor = Color.White;
+				return false;
+			}
+			txbFeatures.BackColor = Color.White;
+			txbFeatures.ForeColor = Color.Black;
+			return true;
+		}
+
+		private bool IsPriceValid()
+		{
+			if (string.IsNullOrWhiteSpace(txbPrice.Text) || (decimal.TryParse(txbPrice.Text.RemoveMoneyFormat(), out decimal price) && price <= 0))
+			{
+				txbPrice.BackColor = Color.Red;
+				txbPrice.ForeColor = Color.White;
+				return false;
+			}
+			txbPrice.BackColor = Color.White;
+			txbPrice.ForeColor = Color.Black;
+			return true;
+		}
+
+		private bool IsQuantityValid()
+		{
+			if (string.IsNullOrWhiteSpace(txbQuantidade.Text) || (int.TryParse(txbQuantidade.Text, out int qtd) && qtd <= 0))
+			{
+				txbQuantidade.BackColor = Color.Red;
+				txbQuantidade.ForeColor = Color.White;
+				return false;
+			}
+			txbQuantidade.BackColor = Color.White;
+			txbQuantidade.ForeColor = Color.Black;
+			return true;
+		}
+
 		private ProductViewModel CreateNewProduct()
 		{
+			int.TryParse(txbQuantidade.Text, out int qtd);
+			int.TryParse(cmbCategories.SelectedValue.ToString(), out int categoryId);
+			int.TryParse(cmbCompanies.SelectedValue.ToString(), out int companyId);
+			decimal.TryParse(txbPrice.Text.RemoveMoneyFormat(), out decimal price);
+			price = price / 100;
 			return new ProductViewModel()
 			{
-				Name = txbProductName.Text
+				Name = txbProductName.Text,
+				Features = txbFeatures.Text,
+				Price = price,
+				Quantity = qtd,
+				CategoryId = categoryId,
+				CompanyId = companyId
 			};
 		}
 
@@ -116,8 +185,31 @@ namespace Inventario.Forms.Products
 
 		private void txbQuantidade_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if(!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+			if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
 				e.Handled = true;
+		}
+
+		private void btnNovo_Click(object sender, EventArgs e)
+		{
+			ClearForm();
+		}
+
+		private void ClearForm()
+		{
+			txbProductName.Text = string.Empty;
+			txbPrice.Text = string.Empty;
+			txbFeatures.Text = string.Empty;
+			txbQuantidade.Text = string.Empty;
+			cmbCategories.SelectedIndex = 0;
+			cmbCompanies.SelectedIndex = 0;
+		}
+
+		private void FrmProduct_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			if (Owner != null)
+			{
+				Owner.Show();
+			}
 		}
 	}
 }

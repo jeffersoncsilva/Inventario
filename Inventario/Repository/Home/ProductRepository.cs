@@ -29,7 +29,7 @@ namespace Inventario.Repository.Home
 		{
 			try
 			{
-				using (var cmd = new SqlCommand("INSERT INTO Product (Name, Features, Quantity, Price, CategoryId, CompanyId) VALUES (@name, @features, @quantity, @price, @categoryId, @companyId)"))
+				using (var cmd = new SqlCommand("INSERT INTO Products (Name, Features, Quantity, Price, CategoryId, CompanyId) VALUES (@name, @features, @quantity, @price, @categoryId, @companyId)"))
 				{
 					cmd.Parameters.AddWithValue("name", productViewModel.Name);
 					cmd.Parameters.AddWithValue("features", productViewModel.Features);

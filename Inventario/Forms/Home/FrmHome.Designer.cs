@@ -155,6 +155,7 @@
 			this.sairToolStripMenuItem.Size = new System.Drawing.Size(62, 74);
 			this.sairToolStripMenuItem.Text = "Sair";
 			this.sairToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
 			// 
 			// menuStrip2
 			// 

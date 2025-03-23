@@ -37,9 +37,6 @@
 			this.txbProductName = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.btnData = new System.Windows.Forms.Button();
-			this.btnUpdate = new System.Windows.Forms.Button();
-			this.btnDeletar = new System.Windows.Forms.Button();
 			this.btnSalvar = new System.Windows.Forms.Button();
 			this.btnNovo = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
@@ -127,47 +124,14 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.btnData);
-			this.groupBox1.Controls.Add(this.btnUpdate);
-			this.groupBox1.Controls.Add(this.btnDeletar);
 			this.groupBox1.Controls.Add(this.btnSalvar);
 			this.groupBox1.Controls.Add(this.btnNovo);
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-			this.groupBox1.Location = new System.Drawing.Point(25, 304);
+			this.groupBox1.Location = new System.Drawing.Point(304, 304);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(480, 59);
+			this.groupBox1.Size = new System.Drawing.Size(201, 59);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
-			// 
-			// btnData
-			// 
-			this.btnData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-			this.btnData.Location = new System.Drawing.Point(377, 14);
-			this.btnData.Name = "btnData";
-			this.btnData.Size = new System.Drawing.Size(85, 32);
-			this.btnData.TabIndex = 11;
-			this.btnData.Text = "&Data";
-			this.btnData.UseVisualStyleBackColor = true;
-			// 
-			// btnUpdate
-			// 
-			this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-			this.btnUpdate.Location = new System.Drawing.Point(286, 14);
-			this.btnUpdate.Name = "btnUpdate";
-			this.btnUpdate.Size = new System.Drawing.Size(85, 32);
-			this.btnUpdate.TabIndex = 10;
-			this.btnUpdate.Text = "&Atualizar";
-			this.btnUpdate.UseVisualStyleBackColor = true;
-			// 
-			// btnDeletar
-			// 
-			this.btnDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-			this.btnDeletar.Location = new System.Drawing.Point(195, 14);
-			this.btnDeletar.Name = "btnDeletar";
-			this.btnDeletar.Size = new System.Drawing.Size(85, 32);
-			this.btnDeletar.TabIndex = 9;
-			this.btnDeletar.Text = "&Deletar";
-			this.btnDeletar.UseVisualStyleBackColor = true;
 			// 
 			// btnSalvar
 			// 
@@ -187,8 +151,9 @@
 			this.btnNovo.Name = "btnNovo";
 			this.btnNovo.Size = new System.Drawing.Size(85, 32);
 			this.btnNovo.TabIndex = 7;
-			this.btnNovo.Text = "&Novo";
+			this.btnNovo.Text = "&Limpar";
 			this.btnNovo.UseVisualStyleBackColor = true;
+			this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
 			// 
 			// label4
 			// 
@@ -260,6 +225,7 @@
 			this.Name = "FrmProduct";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Produtos";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmProduct_FormClosed);
 			this.Load += new System.EventHandler(this.FrmProduct_Load);
 			this.grbProdutos.ResumeLayout(false);
 			this.grbProdutos.PerformLayout();
@@ -280,9 +246,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btnSalvar;
 		private System.Windows.Forms.Button btnNovo;
-		private System.Windows.Forms.Button btnData;
-		private System.Windows.Forms.Button btnUpdate;
-		private System.Windows.Forms.Button btnDeletar;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox txbFeatures;
 		private System.Windows.Forms.Label label4;
