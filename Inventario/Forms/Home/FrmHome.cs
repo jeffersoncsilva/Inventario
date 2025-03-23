@@ -1,4 +1,5 @@
 ﻿using Inventario.Forms.Account;
+using Inventario.Forms.Categories;
 using Inventario.Forms.Customers;
 using Inventario.Forms.Products;
 using Inventario.Models.Products;
@@ -124,10 +125,7 @@ namespace Inventario.Features.Home
 
 		private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var frmProduct = new FrmProduct();
-			this.Hide();
-			frmProduct.Owner = this;
-			frmProduct.ShowDialog();
+
 		}
 
 		private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -137,18 +135,40 @@ namespace Inventario.Features.Home
 
 		private void registroToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var newUser = new FrmNewUser();
-			newUser.Owner = this;
-			Hide();
-			newUser.ShowDialog();
+
 		}
 
 		private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+
+		}
+
+		private void novoToolStripMenuItem_Click(object sender, EventArgs e)
+		{
 			var newCliwent = new FrmCustomers();
 			newCliwent.Owner = this;
-			Hide();
 			newCliwent.ShowDialog();
+		}
+
+		private void novoToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			var frmProduct = new FrmProduct();
+			frmProduct.Owner = this;
+			frmProduct.ShowDialog();
+		}
+
+		private void novoToolStripMenuItem2_Click(object sender, EventArgs e)
+		{
+			var newUser = new FrmNewUser();
+			newUser.Owner = this;
+			newUser.ShowDialog();
+		}
+
+		private void categoriaToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			var frmCategory = new FrmCategory();
+			frmCategory.Owner = this;
+			frmCategory.ShowDialog();
 		}
 	}
 }

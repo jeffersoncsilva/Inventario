@@ -162,6 +162,7 @@
   <ItemGroup>
     <Compile Include="Extensions\DecimalExtension.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TextBoxExtensions.cs" />
     <Compile Include="Forms\Account\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +174,12 @@
     </Compile>
     <Compile Include="Forms\Account\FrmNewUser.Designer.cs">
       <DependentUpon>FrmNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Categories\FrmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Categories\FrmCategory.Designer.cs">
+      <DependentUpon>FrmCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Customers\FrmCustomers.cs">
       <SubType>Form</SubType>
@@ -207,6 +214,7 @@
     <Compile Include="Repository\ClientRepository.cs" />
     <Compile Include="Repository\Home\ProductRepository.cs" />
     <Compile Include="Services\Account\AccountService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\Customers\ClientService.cs" />
     <Compile Include="Services\Products\ProductService.cs" />
     <EmbeddedResource Include="Forms\Account\FrmLogin.resx">
@@ -214,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Account\FrmNewUser.resx">
       <DependentUpon>FrmNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Categories\FrmCategory.resx">
+      <DependentUpon>FrmCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\FrmCustomers.resx">
       <DependentUpon>FrmCustomers.cs</DependentUpon>
